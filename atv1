@@ -1,0 +1,49 @@
+using System;
+class Program 
+{
+static void Main() 
+{
+int[][]notasAlunos=newint[3][]; 
+notasAlunos[0]=newint[]{70, 85, 90 };   // Aluno 0: 3 notas 
+notasAlunos[1]=newint[]{60, 45 };     // Aluno 1: 2 notas 
+notasAlunos[2]=newint[]{80, 95, 100, 88 }; // Aluno 2: 4 notas 
+
+Console.WriteLine("---Estrutura de Notas ---"); 
+for(inti=0;i<notasAlunos.Length; i++);
+{
+Console.Write($"Aluno{i}:"); 
+for(intj=0;j<notasAlunos[i].Length; j++) 
+{
+Console.Write(notasAlunos[i][j] + " "); 
+}
+Console.WriteLine();
+}
+Console.WriteLine("\nDigite uma nota para buscar:");
+intnotaBusca=int.Parse(Console.ReadLine()); 
+
+boolencontrada=BuscaSequencial(notasAlunos, notaBusca); 
+
+if (encontrada)
+Console.WriteLine($"A nota {notaBusca} foi encontrada no sistema."); 
+
+else
+Console.WriteLine($"A nota {notaBusca} não consta nos registros."); 
+}
+[cite_start]
+staticboolBuscaSequencial(int[][] matriz, int valorProcurado) 
+{
+for(inti=0;i<matriz.Length; i++) 
+{
+for(intj=0;j<matriz[i].Length; j++) 
+{
+[cite_start]
+if(matriz[i][j]==valorProcurado) 
+{
+Console.WriteLine($"[DEBUG] Encontrado no Aluno {i}, Prova {j}"); 
+return true;
+}
+}
+} 
+return false;
+}
+}
